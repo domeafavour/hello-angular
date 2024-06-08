@@ -120,9 +120,9 @@
       <h1>Hello, {{ title }}</h1>
       <p>Congratulations! Your app is running. 🎉</p>
       <app-todo-list>
-        <app-todo-list-item>todo 1</app-todo-list-item>
-        <app-todo-list-item>todo 2</app-todo-list-item>
-        <app-todo-list-item>todo 3</app-todo-list-item>
+        @for (todo of todos; track todo.id) {
+          <app-todo-list-item>{{ todo.title }}</app-todo-list-item>
+        }
       </app-todo-list>
     </div>
   </div>
