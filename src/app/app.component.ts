@@ -24,4 +24,8 @@ export class AppComponent {
     { id: 2, title: 'Buy eggs', completed: true },
     { id: 3, title: 'Buy bread', completed: false },
   ];
+
+  onToggleCompleted(todo: Todo) {
+    todo.completed = !todo.completed;
+  }
 }

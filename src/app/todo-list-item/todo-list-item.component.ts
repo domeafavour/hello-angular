@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-todo-list-item',
@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class TodoListItemComponent {
   @Input() completed: boolean = false;
+  @Output() onToggleCompleted = new EventEmitter<void>();
 }

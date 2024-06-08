@@ -121,9 +121,11 @@
       <p>Congratulations! Your app is running. 🎉</p>
       <app-todo-list>
         @for (todo of todos; track todo.id) {
-          <app-todo-list-item [completed]="todo.completed">{{
-            todo.title
-          }}</app-todo-list-item>
+          <app-todo-list-item
+            [completed]="todo.completed"
+            (onToggleCompleted)="onToggleCompleted(todo)"
+            >{{ todo.title }}</app-todo-list-item
+          >
         }
       </app-todo-list>
     </div>
