@@ -1,1 +1,3 @@
-<li class="todo-list-item"><ng-content /></li>
+<li [ngClass]="{ 'todo-list-item': true, completed: completed }">
+  <ng-content />
+</li>
