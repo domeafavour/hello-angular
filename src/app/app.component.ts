@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AddTodoModule } from './add-todo/add-todo.module';
 import { LogoComponent } from './logo/logo.component';
 import { TodoListItemModule } from './todo-list-item/todo-list-item.module';
 import { TodoListComponent } from './todo-list/todo-list.component';
@@ -13,7 +14,13 @@ interface Todo {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LogoComponent, TodoListComponent, TodoListItemModule],
+  imports: [
+    RouterOutlet,
+    LogoComponent,
+    TodoListComponent,
+    TodoListItemModule,
+    AddTodoModule,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.less',
 })
@@ -27,5 +34,10 @@ export class AppComponent {
 
   onToggleCompleted(todo: Todo) {
     todo.completed = !todo.completed;
+  }
+
+  onAddTodo(text: string) {
+    const id = this.todos.length + 1;
+    this.todos.push({ id, title: text, completed: false });
   }
 }

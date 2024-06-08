@@ -119,6 +119,7 @@
       <app-logo />
       <h1>Hello, {{ title }}</h1>
       <p>Congratulations! Your app is running. 🎉</p>
+      <app-add-todo (onAddTodo)="onAddTodo($event)"></app-add-todo>
       <app-todo-list>
         @for (todo of todos; track todo.id) {
           <app-todo-list-item
