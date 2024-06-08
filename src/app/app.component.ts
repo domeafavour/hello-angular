@@ -5,10 +5,16 @@ import { LogoComponent } from './components/logo/logo.component';
 import { TodoListItemModule } from './components/todo-list-item/todo-list-item.module';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 
+let id = 0;
+
 interface Todo {
   id: number;
   title: string;
   completed: boolean;
+}
+
+function createTodo(title: string, completed = false): Todo {
+  return { id: id++, title, completed: false };
 }
 
 @Component({
@@ -27,9 +33,9 @@ interface Todo {
 export class AppComponent {
   title = 'hello-angular';
   todos: Todo[] = [
-    { id: 1, title: 'Buy milk', completed: false },
-    { id: 2, title: 'Buy eggs', completed: true },
-    { id: 3, title: 'Buy bread', completed: false },
+    createTodo('Buy milk'),
+    createTodo('Buy eggs', true),
+    createTodo('Buy bread'),
   ];
 
   onToggleCompleted(todo: Todo) {
@@ -37,7 +43,10 @@ export class AppComponent {
   }
 
   onAddTodo(text: string) {
-    const id = this.todos.length + 1;
-    this.todos.push({ id, title: text, completed: false });
+    this.todos.push(createTodo(text));
+  }
+
+  onDeleteTodo(todo: Todo) {
+    this.todos = this.todos.filter((t) => t.id !== todo.id);
   }
 }

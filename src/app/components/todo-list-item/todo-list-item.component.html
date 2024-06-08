@@ -1,14 +1,13 @@
-<li
-  [ngClass]="[
-    'font-light',
-    'flex flex-row gap-2',
-    completed ? 'line-through' : '',
-  ]"
->
+<li [ngClass]="['font-light', 'flex flex-row gap-2']">
   <input
     type="checkbox"
     [checked]="completed"
     (change)="onToggleCompleted.emit()"
   />
-  <ng-content />
+  <span [ngClass]="{ 'line-through': completed }">
+    <ng-content />
+  </span>
+  <button type="button" class="text-red-600" (click)="onDelete.emit()">
+    x
+  </button>
 </li>

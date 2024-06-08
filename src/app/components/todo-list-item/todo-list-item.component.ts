@@ -8,4 +8,5 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class TodoListItemComponent {
   @Input() completed: boolean = false;
   @Output() onToggleCompleted = new EventEmitter<void>();
+  @Output() onDelete = new EventEmitter<void>();
 }

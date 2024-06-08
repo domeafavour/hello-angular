@@ -125,6 +125,7 @@
           <app-todo-list-item
             [completed]="todo.completed"
             (onToggleCompleted)="onToggleCompleted(todo)"
+            (onDelete)="onDeleteTodo(todo)"
             >{{ todo.title }}</app-todo-list-item
           >
         }
