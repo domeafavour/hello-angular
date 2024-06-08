@@ -1,0 +1,13 @@
+<div>
+  <app-add-todo (onAddTodo)="onAddTodo($event)"></app-add-todo>
+  <app-todo-list>
+    @for (todo of todos; track todo.id) {
+      <app-todo-list-item
+        [completed]="todo.completed"
+        (onToggleCompleted)="onToggleCompleted(todo)"
+        (onDelete)="onDeleteTodo(todo)"
+        >{{ todo.title }}</app-todo-list-item
+      >
+    }
+  </app-todo-list>
+</div>
