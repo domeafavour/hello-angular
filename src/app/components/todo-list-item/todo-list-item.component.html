@@ -1,6 +1,14 @@
 <li
-  [ngClass]="{ 'todo-list-item': true, completed: completed }"
-  (click)="onToggleCompleted.emit()"
+  [ngClass]="[
+    'font-light',
+    'flex flex-row gap-2',
+    completed ? 'line-through' : '',
+  ]"
 >
+  <input
+    type="checkbox"
+    [checked]="completed"
+    (change)="onToggleCompleted.emit()"
+  />
   <ng-content />
 </li>
