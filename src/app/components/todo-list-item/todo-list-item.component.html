@@ -1,13 +1,23 @@
-<li [ngClass]="['font-light', 'flex flex-row gap-2']">
+<li
+  [ngClass]="[
+    'font-light',
+    'flex flex-row gap-2 items-center',
+    'py-2 rounded-md hover:bg-gray-50',
+  ]"
+>
   <input
     type="checkbox"
     [checked]="completed"
     (change)="onToggleCompleted.emit()"
   />
-  <span [ngClass]="{ 'line-through': completed }">
+  <span [ngClass]="{ 'line-through': completed }" class="font-serif">
     <ng-content />
   </span>
-  <button type="button" class="text-red-600" (click)="onDelete.emit()">
-    x
+  <button
+    type="button"
+    class="text-red-600 ms-auto font-mono size-6 rounded-md hover:bg-gray-100"
+    (click)="onDelete.emit()"
+  >
+    &times;
   </button>
 </li>
